@@ -48,7 +48,12 @@
     layout = "us";
     variant = "";
   };
-  
+
+  # Enables fonts
+  fonts.packages = with pkgs; [ 
+     nerdfonts 
+  ];
+
   # Enables fwup daemon
   services.fwupd.enable = true;
 
@@ -176,6 +181,7 @@
     steam-devices-udev-rules
     gearlever
     popsicle
+    starship
   ];
   
   
@@ -228,7 +234,9 @@
        eval "$(ssh-agent -s)" > /dev/null
        ssh-add ~/.ssh/id_rsa 2>/dev/null
     fi
- 
+
+    eval "$(starship init zsh)"
+
     # Autosuggestions
     source ${pkgs.zsh-autosuggestions}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     # Autocomplete
