@@ -176,7 +176,6 @@
     steam-devices-udev-rules
     gearlever
     popsicle
-    gnome-software
   ];
   
   
