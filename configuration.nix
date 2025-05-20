@@ -51,7 +51,7 @@
 
   # Enables fonts
   fonts.packages = with pkgs; [ 
-     nerdfonts 
+    nerd-fonts.fira-code
   ];
 
   # Enables fwup daemon
