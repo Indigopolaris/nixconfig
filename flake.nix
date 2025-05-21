@@ -1,21 +1,30 @@
- # COSMIC DE
 {
-    description = "Freds minimal Nixos configuration flake.";
-    inputs = {
-     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-     nix-flatpak.url = "github:gmodena/nix-flatpak";
-   };
-   
-   outputs = { self, nixpkgs, nix-flatpak, ...} @ inputs: {
+  description = "Will's flake.";
+
+  inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nix-flatpak.url = "github:gmodena/nix-flatpak";
+  };
+
+  outputs = { self, nixpkgs, nix-flatpak, ... }@inputs: {
+    # Define the nixosConfigurations
     nixosConfigurations = {
-       # NOTE: change "host" to your system's hostname
-       system = "x86_64-linux";
-       nixos = nixpkgs.lib.nixosSystem {
-         modules = [
-           nix-flatpak.nixosModules.nix-flatpak
-          ./configuration.nix
+      laptop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          nix-flatpak.nixosModules.nix-flatpak
+          ./config-laptop.nix
         ];
-         specialArgs = { inherit inputs; };
+        specialArgs = { inherit inputs; };
+      };
+
+      desktop = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        modules = [
+          nix-flatpak.nixosModules.nix-flatpak
+          ./config-desktop.nix
+        ];
+        specialArgs = { inherit inputs; };
       };
     };
   };
