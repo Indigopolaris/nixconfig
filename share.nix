@@ -1,6 +1,6 @@
 { config, pkgs, inputs, ... }:
 {
-# Enables fonts
+ # Enables fonts
   fonts.packages = with pkgs; [ 
     nerd-fonts.fira-code
   ];
@@ -136,6 +136,15 @@
     gnome-software
     zed-editor
     fuse3
+    go
+    gtk3
+    webkitgtk
+    gcc
+    pkg-config
+    nodejs
+    upx
+    docker
+    nsis
   ];
   
   
@@ -182,6 +191,8 @@
        eval "$(ssh-agent -s)" > /dev/null
        ssh-add ~/.ssh/id_rsa 2>/dev/null
     fi
+    
+    export PATH=$PATH:/home/indigo/go/bin/
 
     eval "$(starship init zsh)"
 
@@ -200,4 +211,4 @@
   platformTheme = "gnome";
   style = "adwaita-dark";
   };
-  }
+}

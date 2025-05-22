@@ -4,7 +4,7 @@
 { config, pkgs, inputs, ... }:
 {
   imports =
-    [ # Include the results of the hardware scan.
+     [ # Include the results of the hardware scan.
       ./hardware-laptop.nix
       ./cosmic.nix
       ./share.nix
