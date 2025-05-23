@@ -137,14 +137,10 @@
     zed-editor
     fuse3
     go
-    gtk3
-    webkitgtk
-    gcc
-    pkg-config
-    nodejs
-    upx
-    docker
+    wails
+    google-chrome
     nsis
+    upx
   ];
   
   
@@ -153,8 +149,8 @@
     enable = true;
     # Command-line arguments
     args = [
-      "-w 2560"
-      "-h 1440"
+      "-w 1920"
+      "-h 1080"
       "-f"    
       ];
    };  
