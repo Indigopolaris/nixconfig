@@ -12,5 +12,7 @@
     cosmic-ext-tweaks
     cosmic-applibrary
     seahorse
+    cheese
+    loupe
   ];
 }
